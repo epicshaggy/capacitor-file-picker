@@ -1,5 +1,5 @@
 import { WebPlugin } from "@capacitor/core";
-import { FilePickerPlugin } from "./definitions";
+import { FilePickerPlugin, FilePickerResult } from "./definitions";
 
 export class FilePickerWeb extends WebPlugin implements FilePickerPlugin {
   constructor() {
@@ -9,13 +9,11 @@ export class FilePickerWeb extends WebPlugin implements FilePickerPlugin {
     });
   }
 
-  async test(options: { value: string }): Promise<{ value: string }> {
-    console.log("ECHO", options);
-    return options;
-  }
-
-  async showPicker() {
-    return new Promise(() => {});
+  showFilePicker(options?: {
+    fileTypes?: string[];
+  }): Promise<FilePickerResult> {
+    console.log(options);
+    return Promise.resolve(null);
   }
 }
 

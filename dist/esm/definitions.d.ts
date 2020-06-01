@@ -3,11 +3,18 @@ declare module "@capacitor/core" {
         FilePicker: FilePickerPlugin;
     }
 }
+export declare class FiletTypes {
+    static IMAGE: string;
+    static PDF: string;
+}
+export interface FilePickerResult {
+    uri: string;
+    name: string;
+    mimeType: string;
+    extension: string;
+}
 export interface FilePickerPlugin {
-    test(options: {
-        value: string;
-    }): Promise<{
-        value: string;
-    }>;
-    showPicker(): Promise<any>;
+    showFilePicker(options?: {
+        fileTypes?: string[];
+    }): Promise<FilePickerResult>;
 }
