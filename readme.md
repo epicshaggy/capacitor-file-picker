@@ -47,6 +47,29 @@ FilePickerResult
 | mimeType   |         | `string` | The MIME type of the selected file.       |
 | extension  |         | `string` | The extension of the selected file.       |
 
+
+## Android
+
+Register the plugin by adding it to your MainActivity's onCreate:
+
+```ts
+import com.epicshaggy.filepicker.FilePicker;
+
+public class MainActivity extends BridgeActivity {
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // Initializes the Bridge
+    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+      // Additional plugins you've installed go here
+      // Ex: add(TotallyAwesomePlugin.class);
+      add(FilePicker.class);
+    }});
+  }
+}
+```
+
 ## Notes
 
 The file picker only accpets:
