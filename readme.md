@@ -52,7 +52,7 @@ FilePickerResult
 
 Register the plugin by adding it to your MainActivity's onCreate:
 
-```ts
+```java
 import com.epicshaggy.filepicker.FilePicker;
 
 public class MainActivity extends BridgeActivity {
