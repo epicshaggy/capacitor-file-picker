@@ -135,7 +135,7 @@ public class FilePicker: CAPPlugin {
                 acceptTypes.append(kUTTypeImage)
                 break
             default:
-                acceptTypes.append(string as NSString)
+                acceptTypes.append(fileType as NSString)
                 break
             }
         }
@@ -148,8 +148,8 @@ public class FilePicker: CAPPlugin {
     }
     
     func getMimeTypeFrom(_ ext: String) -> String {
-        if ext != nil && mimeTypes.contains({ $0.0 == ext!.lowercaseString }) {
-            return mimeTypes[ext!.lowercaseString]!
+        if mimeTypes.keys.contains(ext.lowercased()) {
+            return mimeTypes[ext.lowercased()]!
         }
         return DEFAULT_MIME_TYPE
     }
