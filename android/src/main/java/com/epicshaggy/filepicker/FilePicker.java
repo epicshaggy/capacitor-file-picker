@@ -44,6 +44,7 @@ public class FilePicker extends Plugin {
                         typeList.add("image/*");
                         break;
                     default:
+                        typeList.add(val);
                         break;
                 }
             } catch (JSONException e) {
