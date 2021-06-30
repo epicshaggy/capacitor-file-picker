@@ -20,6 +20,3 @@ export class FilePickerWeb extends WebPlugin implements FilePickerPlugin {
 const FilePicker = new FilePickerWeb();
 
 export { FilePicker };
-
-import { registerWebPlugin } from "@capacitor/core";
-registerWebPlugin(FilePicker);

@@ -157,8 +157,7 @@ public class FilePicker: CAPPlugin {
     @objc func showFilePicker(_ call: CAPPluginCall) {
         let defaults = UserDefaults()
         defaults.set(call.callbackId, forKey: "callbackId")
-        
-        call.save()
+        call.keepAlive = true
         
         let fileTypes = call.options["fileTypes"] as? [String] ?? []
         
@@ -169,7 +168,7 @@ public class FilePicker: CAPPlugin {
             let documentPicker = UIDocumentPickerViewController(documentTypes: types as [String], in: .import)
             documentPicker.delegate = self
             documentPicker.allowsMultipleSelection = false
-            self.bridge.viewController.present(documentPicker, animated: true, completion: nil)
+            self.bridge?.presentVC(documentPicker, animated: true, completion: nil)
         }
     }
     
@@ -181,7 +180,7 @@ extension FilePicker: UIDocumentPickerDelegate {
         let defaults = UserDefaults()
         let id = defaults.string(forKey: "callbackId") ?? ""
 
-        guard let call = self.bridge.getSavedCall(id) else {
+        guard let call = self.bridge?.savedCall(withID: id) else {
             return
         }
         
@@ -194,5 +193,6 @@ extension FilePicker: UIDocumentPickerDelegate {
         ret["mimeType"] = getMimeTypeFrom(pathExtension)
         ret["extension"] = pathExtension
         call.resolve(ret)
+        self.bridge?.releaseCall(call)
     }
 }

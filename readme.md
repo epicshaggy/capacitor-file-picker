@@ -6,6 +6,12 @@ Presents the device's native file picking ui and returns the selected file's uri
 
 ## Installation
 
+### Capacitor 2
+
+- `npm i capacitor-file-picker@0.0.2`
+
+### Capacitor 3
+
 - `npm i capacitor-file-picker`
 
 ## Usage
@@ -46,7 +52,6 @@ FilePickerResult
 | name       |         | `string` | The name of the selected file.            |
 | mimeType   |         | `string` | The MIME type of the selected file.       |
 | extension  |         | `string` | The extension of the selected file.       |
-
 
 ## Android
 
