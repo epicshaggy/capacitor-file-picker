@@ -11,8 +11,4 @@ export class FilePickerWeb extends WebPlugin {
         return Promise.resolve(null);
     }
 }
-const FilePicker = new FilePickerWeb();
-export { FilePicker };
-import { registerWebPlugin } from "@capacitor/core";
-registerWebPlugin(FilePicker);
 //# sourceMappingURL=web.js.map

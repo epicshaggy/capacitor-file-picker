@@ -6,5 +6,3 @@ export declare class FilePickerWeb extends WebPlugin implements FilePickerPlugin
         fileTypes?: string[];
     }): Promise<FilePickerResult>;
 }
-declare const FilePicker: FilePickerWeb;
-export { FilePicker };
