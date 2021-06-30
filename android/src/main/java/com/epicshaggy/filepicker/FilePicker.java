@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.provider.OpenableColumns;
 import android.webkit.MimeTypeMap;
 
@@ -13,6 +12,7 @@ import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.ActivityCallback;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
 import org.json.JSONException;
@@ -74,6 +74,7 @@ public class FilePicker extends Plugin {
         startActivityForResult(call, intent, "filePickerResult");
     }
 
+    @ActivityCallback
     private void filePickerResult(PluginCall call, Instrumentation.ActivityResult result) {
 
         switch (result.getResultCode()) {
