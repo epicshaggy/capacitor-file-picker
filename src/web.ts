@@ -17,6 +17,4 @@ export class FilePickerWeb extends WebPlugin implements FilePickerPlugin {
   }
 }
 
-const FilePicker = new FilePickerWeb();
 
-export { FilePicker };
