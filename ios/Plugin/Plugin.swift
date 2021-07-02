@@ -168,7 +168,7 @@ public class FilePicker: CAPPlugin {
             let documentPicker = UIDocumentPickerViewController(documentTypes: types as [String], in: .import)
             documentPicker.delegate = self
             documentPicker.allowsMultipleSelection = false
-            self.bridge?.presentVC(documentPicker, animated: true, completion: nil)
+            self.bridge?.viewController?.present(documentPicker, animated: true, completion: nil)
         }
     }
     
