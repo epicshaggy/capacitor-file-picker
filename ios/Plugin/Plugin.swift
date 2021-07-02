@@ -157,7 +157,7 @@ public class FilePicker: CAPPlugin {
     @objc func showFilePicker(_ call: CAPPluginCall) {
         let defaults = UserDefaults()
         defaults.set(call.callbackId, forKey: "callbackId")
-        call.keepAlive = true
+        self.bridge?.saveCall(call)
         
         let fileTypes = call.options["fileTypes"] as? [String] ?? []
         
