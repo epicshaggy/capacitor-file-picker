@@ -13,8 +13,6 @@ export class FilePickerWeb extends WebPlugin implements FilePickerPlugin {
     fileTypes?: string[];
   }): Promise<FilePickerResult> {
     console.log(options);
-    return Promise.resolve(null);
+    return Promise.reject("Method not implemented");
   }
 }
-
-
