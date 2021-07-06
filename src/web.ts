@@ -9,11 +9,10 @@ export class FilePickerWeb extends WebPlugin implements FilePickerPlugin {
     });
   }
 
-  showFilePicker(_options?: {
+  async showFilePicker(_options?: {
     fileTypes?: string[];
   }): Promise<FilePickerResult> {
-    return new Promise((_resolve, reject) => {
-      reject("No implementation");
-    });
+    this.unimplemented("Method is not yet implemented.");
+    return;
   }
 }
