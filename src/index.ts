@@ -1,8 +1,8 @@
 import { registerPlugin } from "@capacitor/core";
-import { FilePickerPlugin } from "./definitions";
+import type { FilePickerPlugin } from "./definitions";
 
 const FilePicker = registerPlugin<FilePickerPlugin>("FilePicker", {
-  web: () => import("./web").then((m) => m.FilePickerWeb),
+  web: () => import("./web").then((m) => new m.FilePickerWeb()),
 });
 
 export * from "./definitions";

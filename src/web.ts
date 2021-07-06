@@ -12,7 +12,6 @@ export class FilePickerWeb extends WebPlugin implements FilePickerPlugin {
   async showFilePicker(_options?: {
     fileTypes?: string[];
   }): Promise<FilePickerResult> {
-    this.unimplemented("Method is not yet implemented.");
-    return;
+    return Promise.reject("No implementation for web yet.");
   }
 }
