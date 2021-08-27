@@ -80,7 +80,7 @@ public class FilePicker extends Plugin {
 
         switch (result.getResultCode()) {
             case Activity.RESULT_OK:
-                if (result != null) {
+                if (result.getData() != null && result.getData().getData() != null) {
                     Intent data = result.getData();
 
                     String mimeType = getContext().getContentResolver().getType(data.getData());
