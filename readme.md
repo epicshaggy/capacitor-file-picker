@@ -14,15 +14,13 @@ Presents the device's native file picking ui and returns the selected file's uri
 
 - `npm i capacitor-file-picker`
 
-## Usage
+## Usage (Capacitor 3)
 
 ```ts
-import { Plugins } from "@capacitor/core";
-
-const { FilePicker } = Plugins;
+import { FilePicker, FilePickerResult } from 'capacitor-file-picker';
 
 FilePicker.showFilePicker({
-  fileTypes: ["image/*", "application/pdf"],
+  fileTypes: ['pdf', 'image'],
 }).then(
   (fileResult: FilePickerResult) => {
     const fileUri = fileResult.uri;
