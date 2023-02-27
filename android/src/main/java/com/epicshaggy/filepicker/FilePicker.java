@@ -92,7 +92,11 @@ public class FilePicker extends Plugin {
 
                     Cursor c = getContext().getContentResolver().query(data.getData(), null, null, null, null);
                     c.moveToFirst();
-                    String name = c.getString(c.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                    String name = "Unknown";
+                    int index = c.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (index > -1) {
+                        name = c.getString(index);
+                    }
 
                     JSObject ret = new JSObject();
                     ret.put("uri", data.getDataString());
