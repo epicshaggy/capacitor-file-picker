@@ -1,6 +1,7 @@
 export class FiletTypes {
-  static IMAGE = "image"; // For any type of image file
   static PDF = "pdf"; // For .pdf files
+  static IMAGE = "image"; // For any type of image file
+  static VIDEO = "video"; // For .pdf files
 }
 
 export interface FilePickerResult {

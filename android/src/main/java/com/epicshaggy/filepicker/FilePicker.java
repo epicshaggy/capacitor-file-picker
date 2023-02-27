@@ -26,6 +26,7 @@ public class FilePicker extends Plugin {
     private class FileTypes {
         static final String PDF = "pdf";
         static final String IMAGE = "image";
+        static final String VIDEO = "video";
     }
 
     private String[] getAllowedFileTypes(JSArray fileTypes) {
@@ -41,6 +42,9 @@ public class FilePicker extends Plugin {
                         break;
                     case FileTypes.IMAGE:
                         typeList.add("image/*");
+                        break;
+                    case FileTypes.VIDEO:
+                        typeList.add("video/*");
                         break;
                     default:
                         typeList.add(val);
@@ -88,7 +92,11 @@ public class FilePicker extends Plugin {
 
                     Cursor c = getContext().getContentResolver().query(data.getData(), null, null, null, null);
                     c.moveToFirst();
-                    String name = c.getString(c.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                    String name = "Unknown";
+                    int index = c.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (index > -1) {
+                        name = c.getString(index);
+                    }
 
                     JSObject ret = new JSObject();
                     ret.put("uri", data.getDataString());
