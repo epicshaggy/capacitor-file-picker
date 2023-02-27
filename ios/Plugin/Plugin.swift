@@ -121,6 +121,7 @@ public class FilePicker: CAPPlugin {
     private class FileTypes {
         static let PDF = "pdf"
         static let IMAGE = "image"
+        static let VIDEO = "video"
     }
     
     func getAllowedFileTypes(fileTypes: [String]) -> [CFString] {
@@ -133,6 +134,10 @@ public class FilePicker: CAPPlugin {
                 break
             case FileTypes.IMAGE:
                 acceptTypes.append(kUTTypeImage)
+                break
+            case FileTypes.VIDEO:
+                acceptTypes.append(kUTTypeVideo)
+                acceptTypes.append(kUTTypeMovie)
                 break
             default:
                 acceptTypes.append(fileType as NSString)
